@@ -21,6 +21,8 @@ public class VariableEnvironment
 	//it to theVariables
 	public void addVariable(String name, int value)
 	{
+		NameValuePair nv = new NameValuePair(name, value);
+		theVariables.add(nv);
 		
 	}
 	
@@ -29,6 +31,13 @@ public class VariableEnvironment
 	//any name you look for, will be found.
 	public int getValue(String name)
 	{
+		for(NameValuePair n:theVariables){
+			String nam=n.getName();
+			if(nam.equals(name)){
+				return n.getValue();
+			}
+		}
+		
 		return -1;
 	}
 }
